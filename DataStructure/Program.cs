@@ -6,17 +6,26 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
+            //链表栈
+            //LinkedList1Stack<int> linked = new LinkedList1Stack<int>();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    linked.Push(i);
+            //}
+            //linked.Pop();
+            //Console.WriteLine(linked);
 
-            //栈的应用 =》动态数组实现 受限的线性数据结构
-            Array1Stack<int> stack = new Array1Stack<int>();
-            for (int i = 0; i < 5; i++)
-            {
-                stack.Push(i);
-            }
-            Console.WriteLine(stack);
-            //出栈
-            stack.Pop();
-            Console.WriteLine(stack);
+            //Console.WriteLine(linked.Peek());
+            //数组栈的应用 =》动态数组实现 受限的线性数据结构
+            //Array1Stack<int> stack = new Array1Stack<int>();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    stack.Push(i);
+            //}
+            //Console.WriteLine(stack);
+            ////出栈
+            //stack.Pop();
+            //Console.WriteLine(stack);
             //链表
             //LinkedList1<int> l = new LinkedList1<int>();
             //for (int i = 0; i < 10; i++)
