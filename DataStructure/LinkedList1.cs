@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
+    /// <summary>
+    /// 单向链表
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     class LinkedList1<T>
     {
         private class Node 

@@ -1,11 +1,101 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace DataStructure
 {
     class Program
     {
+        public static long TestStack(IStack<int> stack, int N)
+        {
+            Stopwatch t = new Stopwatch();
+            t.Start();
+            for (int i = 0; i < N; i++)
+                stack.Push(i);
+            for (int i = 0; i < N; i++)
+                stack.Pop();
+            t.Stop();
+            return t.ElapsedMilliseconds;
+        }
+        public static long TestQueue(IQueue<int> queue, int N)
+        {
+            Stopwatch t = new Stopwatch();
+            t.Start();
+            for (int i = 0; i < N; i++)
+                queue.Enqueue(i);
+            for (int i = 0; i < N; i++)
+                queue.Dequeue();
+            t.Stop();
+            return t.ElapsedMilliseconds;
+        }
         static void Main(string[] args)
         {
+            //链表队列
+            int N = 100000;
+            //LinkedList1Queue<int> linkedList1Queue = new LinkedList1Queue<int>();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    linkedList1Queue.Enqueue(i);
+            //}
+            //Console.WriteLine(linkedList1Queue);
+            //linkedList1Queue.Dequeue();
+            //Console.WriteLine(linkedList1Queue);
+           LinkedList2Queue<int> linkedList2Queue = new LinkedList2Queue<int>();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    linkedList2Queue.Enqueue(i);
+            //}
+            //Console.WriteLine(linkedList2Queue);
+            //linkedList2Queue.Dequeue();
+            //Console.WriteLine(linkedList2Queue);
+            //long t1=TestQueue(linkedList1Queue,N);
+            long t2 = TestQueue(linkedList2Queue, N);
+            //Console.WriteLine(t1);
+            Console.WriteLine(t2);
+
+          
+            //数组队列
+           // Array1Queue<int> array1Queue = new Array1Queue<int>();
+           // long t1 = TestQueue(array1Queue,N);
+           // Console.WriteLine(t1);
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    array1Queue.Enqueue(i);
+            //}
+            //Console.WriteLine(array1Queue);
+            //array1Queue.Dequeue();
+            //Console.WriteLine(array1Queue);
+            //Console.WriteLine(array1Queue.Peek());
+            //循环队列
+            //Array2Queue<int> array2Queue = new Array2Queue<int>();
+            //long t2 = TestQueue(array2Queue,N);
+            //Console.WriteLine(t2);
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    array2Queue.Enqueue(i);
+            //}
+            //Console.WriteLine(array2Queue);
+            //array2Queue.Dequeue();
+            //Console.WriteLine(array2Queue);
+            //Console.WriteLine(array2Queue.Peek());
+
+            //测试链表栈和数组栈的效率
+            //int N = 10000000;
+            //Array1Stack<int> array1Stack = new Array1Stack<int>(N);
+            //Console.WriteLine(TestStack(array1Stack, N));
+            //LinkedList1Stack<int> linkedList1Stack = new LinkedList1Stack<int>();
+            //long t2 = TestStack(linkedList1Stack,N);
+            //Console.WriteLine(t2);
+
+            //Stack<int> stack = new Stack<int>(N);
+            //Stopwatch t = new Stopwatch();
+            //t.Start();
+            //for (int i = 0; i < N; i++)
+            //    stack.Push(i);
+            //for (int i = 0; i < N; i++)
+            //    stack.Pop();
+            //t.Stop();
+            //Console.WriteLine(t.ElapsedMilliseconds);
             //链表栈
             //LinkedList1Stack<int> linked = new LinkedList1Stack<int>();
             //for (int i = 0; i < 5; i++)
@@ -64,6 +154,7 @@ namespace DataStructure
             //    a2.AddLast(s[i]);
             //}
             //Console.WriteLine(a2);
+            Console.ReadKey();
         }
     }
 }

@@ -7,44 +7,46 @@ using System.Threading.Tasks;
 namespace DataStructure
 {
     /// <summary>
-    /// 数组栈
+    /// 数组队列
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class Array1Stack<T>:IStack<T>
+    class Array1Queue<T>:IQueue<T>
     {
-        //由动态数组实现 =》数组栈
         private Array1<T> arr;
 
         public int Count { get { return arr.Count; } }
 
         public bool IsEmpty { get { return arr.IsEmpty; } }
 
-        public Array1Stack(int capacity) 
+        public Array1Queue(int capacity) 
         {
             arr = new Array1<T>(capacity);
         }
-        public Array1Stack() 
+        public Array1Queue() 
         {
-            arr =new Array1<T>();
+            arr = new Array1<T>();
         }
 
-        public void Push(T t)
+        public void Enqueue(T t)
         {
             arr.AddLast(t);
         }
-
-        public T Pop()
+        /// <summary>
+        /// 出队 O(n)
+        /// </summary>
+        /// <returns></returns>
+        public T Dequeue()
         {
-            return arr.RemoveLast();
+           return arr.RemoveFirst();
         }
 
         public T Peek()
         {
-            return arr.GetLast();
+            return arr.GetFirst();
         }
         public override string ToString()
         {
-            return "Stack:" + arr.ToString() + "Top";
+            return "Queue: front"+arr.ToString()+"tail";
         }
     }
 }
