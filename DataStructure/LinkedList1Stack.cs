@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 namespace DataStructure
 {
     /// <summary>
-    /// 链表接口
+    /// 链表栈
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IStack<T>
+    class LinkedList1Stack<T>:IStack<E>
     {
-        int Count { get; }
-        bool IsEmpty { get; }
-        void Push(T t);
-        T Pop();
-        T Peek();
     }
 }
