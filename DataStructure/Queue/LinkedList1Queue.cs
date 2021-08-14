@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace DataStructure
 {
     /// <summary>
-    /// 双向链表的列表
+    /// 单向链表的队列
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class LinkedList2Queue<T>:IQueue<T>
+    class LinkedList1Queue<T>:IQueue<T>
     {
-        private LinkedList2<T> list;
-        public LinkedList2Queue()
+        private LinkedList1<T> list;
+        public LinkedList1Queue() 
         {
-            list = new LinkedList2<T>();
+            list = new LinkedList1<T>();
         }
 
         public int Count { get { return list.Count; } }
@@ -24,7 +24,7 @@ namespace DataStructure
 
         public T Dequeue()
         {
-            return list.RemoveFirst();
+           return list.RemoveFirst();
         }
 
         public void Enqueue(T t)
@@ -38,7 +38,7 @@ namespace DataStructure
         }
         public override string ToString()
         {
-            return "Queue Front:" + list.ToString() + "tail";
+            return "Queue Front:"+list.ToString()+"tail";
         }
     }
 }

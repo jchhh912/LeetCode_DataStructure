@@ -168,7 +168,7 @@ namespace DataStructure
         public bool Contains(T t)
         {
             Node cur = head;
-            while (cur.next!=null)
+            while (cur!=null)
             {
                 if (cur.t.Equals(t))
                 {

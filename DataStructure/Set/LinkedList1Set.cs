@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructure
+namespace DataStructure.Set
 {
     /// <summary>
-    /// 单向链表的列表
+    /// 单向链表集合
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class LinkedList1Queue<T>:IQueue<T>
+    class LinkedList1Set<T>:ISet<T>
     {
         private LinkedList1<T> list;
-        public LinkedList1Queue() 
-        {
+        public LinkedList1Set() {
+
             list = new LinkedList1<T>();
         }
 
@@ -22,23 +22,22 @@ namespace DataStructure
 
         public bool IsEmpty { get { return list.IsEmpty; } }
 
-        public T Dequeue()
+        public void Add(T t)
         {
-           return list.RemoveFirst();
+            if (!list.Contains(t))
+            {
+                list.AddFirst(t);
+            }
         }
 
-        public void Enqueue(T t)
+        public bool Contains(T t)
         {
-            list.AddLast(t);
+            return list.Contains(t);
         }
 
-        public T Peek()
+        public void Remove(T t)
         {
-            return list.GetFirst();
-        }
-        public override string ToString()
-        {
-            return "Queue Front:"+list.ToString()+"tail";
+            list.Remove(t);
         }
     }
 }
