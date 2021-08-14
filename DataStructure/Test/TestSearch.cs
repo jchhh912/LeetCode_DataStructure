@@ -8,6 +8,17 @@ namespace DataStructure.Test
 {
     class TestSearch
     {
+        public static int OrderSearch(int[] arr, int target)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i]==target)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         /// <summary>
         /// 二分查找
         /// </summary>

@@ -1,5 +1,7 @@
-﻿using DataStructure.Dictionary;
+﻿using DataStructure.Array;
+using DataStructure.Dictionary;
 using DataStructure.Set;
+using DataStructure.Test;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,40 +14,69 @@ namespace DataStructure
      
         static void Main(string[] args)
         {
+            //有序数组
+            int[] arr = { 1, 3, 4, 2, 55, 223, 45, 12, 532, 123, 53123, 124, 4325, 123, 432 };
+            SortedArray1<int> sortedArray1 = new SortedArray1<int>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sortedArray1.Add(arr[i]);
+            }
+            Console.WriteLine(sortedArray1);
+            Console.WriteLine(sortedArray1.Contains(0));
+            Console.WriteLine(sortedArray1.Min());
+            Console.WriteLine(sortedArray1.Max());
+            Console.WriteLine(sortedArray1.Select(0));
+            Console.WriteLine(sortedArray1.Floor(1));
+            Console.WriteLine(sortedArray1.Ceiling(433));
+            sortedArray1.Remove(55);
+            Console.WriteLine(sortedArray1);
+
+            Student[] students =
+            {
+                new Student("小明",180),
+                 new Student("小H",140),
+                  new Student("小D",150)
+            };
+            SortedArray1<Student> s = new SortedArray1<Student>();
+            for (int i = 0; i < students.Length; i++)
+            {
+                s.Add(students[i]);
+            }
+            Console.WriteLine(s);
             //链表字典 单词字典
-            Stopwatch st1 = new Stopwatch();
-            List<string> words1 = ReadFile("D:\\doc.txt");
-            Console.WriteLine(words1.Count);
-            LinkedList3Dictionary<string,int> linkedList3Dictionary = new LinkedList3Dictionary<string,int>();
-            st1.Start();
-            foreach (var item in words1)
-            {
-                if (!linkedList3Dictionary.ContainsKey(item))
-                {
-                    linkedList3Dictionary.Add(item,1);
-                }
-                else
-                {
-                    linkedList3Dictionary.Set(item, linkedList3Dictionary.Get(item) + 1);
-                }
-            }
-            st1.Stop();
-            Console.WriteLine(linkedList3Dictionary.Count);
-            Console.WriteLine(linkedList3Dictionary.Get("in"));
-            Console.WriteLine(st1.ElapsedMilliseconds);
+            //Stopwatch st1 = new Stopwatch();
+            //List<string> words1 = ReadFile("D:\\doc.txt");
+            //Console.WriteLine(words1.Count);
+            //LinkedList3Dictionary<string,int> linkedList3Dictionary = new LinkedList3Dictionary<string,int>();
+            //st1.Start();
+            //foreach (var item in words1)
+            //{
+            //    if (!linkedList3Dictionary.ContainsKey(item))
+            //    {
+            //        linkedList3Dictionary.Add(item,1);
+            //    }
+            //    else
+            //    {
+            //        linkedList3Dictionary.Set(item, linkedList3Dictionary.Get(item) + 1);
+            //    }
+            //}
+            //st1.Stop();
+            //Console.WriteLine(linkedList3Dictionary.Count);
+            //Console.WriteLine(linkedList3Dictionary.Get("in"));
+            //Console.WriteLine(st1.ElapsedMilliseconds);
             //链表集合 单词字典
-            Stopwatch st = new Stopwatch();   
-            List<string> words = ReadFile("D:\\doc.txt");
-            Console.WriteLine(words.Count);
-            LinkedList1Set<string> linkedList1Set = new LinkedList1Set<string>();
-            st.Start();
-            foreach (var item in words)
-            {
-                linkedList1Set.Add(item);
-            }
-            st.Stop();
-            Console.WriteLine(linkedList1Set.Count);
-            Console.WriteLine(st.ElapsedMilliseconds);
+            //Stopwatch st = new Stopwatch();   
+            //List<string> words = ReadFile("D:\\doc.txt");
+            //Console.WriteLine(words.Count);
+            //LinkedList1Set<string> linkedList1Set = new LinkedList1Set<string>();
+            //st.Start();
+            //foreach (var item in words)
+            //{
+            //    linkedList1Set.Add(item);
+            //}
+            //st.Stop();
+            //Console.WriteLine(linkedList1Set.Count);
+            //Console.WriteLine(st.ElapsedMilliseconds);
             //链表队列
             //int N = 100000;
             //LinkedList1Queue<int> linkedList1Queue = new LinkedList1Queue<int>();
