@@ -10,7 +10,7 @@ namespace DataStructure.Set
     /// 单向链表集合
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class LinkedList1Set<T>:ISet<T>
+    class LinkedList1Set<T>:ISet<T> 
     {
         private LinkedList1<T> list;
         public LinkedList1Set() {

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataStructure.Set;
 
 namespace DataStructure.TestHelper
 {
@@ -31,6 +32,35 @@ namespace DataStructure.TestHelper
                 queue.Dequeue();
             t.Stop();
             return t.ElapsedMilliseconds;
+        }
+        public static long TestSet(Set.ISet<string> set, List<string> words)
+        {
+            Stopwatch st = new Stopwatch();
+            st.Start();
+            foreach (var item in words)
+            {
+                set.Add(item);
+            }
+            st.Stop();
+            return st.ElapsedMilliseconds;
+        }
+        public static long TestDictionary(Dictionary.IDictionary<string,int> dic,List<string> words)
+        {
+            Stopwatch st = new Stopwatch();
+            st.Start();
+            foreach (var item in words)
+            {
+                if (!dic.ContainsKey(item))
+                {
+                    dic.Add(item, 1);
+                }
+                else
+                {
+                    dic.Set(item,dic.Get(item)+1);
+                }
+            }
+            st.Stop();
+            return st.ElapsedMilliseconds;
         }
         public static List<string> ReadFile(string filename)
         {

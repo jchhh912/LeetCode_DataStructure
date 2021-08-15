@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataStructure.Dictionary
 {
+    /// <summary>
+    /// 使用单向链表映射
+    /// </summary>
+    /// <typeparam name="Key"></typeparam>
+    /// <typeparam name="Value"></typeparam>
     class LinkedList3Dictionary<Key,Value>:IDictionary<Key,Value>
     {
         private LinkedList3<Key, Value> list;

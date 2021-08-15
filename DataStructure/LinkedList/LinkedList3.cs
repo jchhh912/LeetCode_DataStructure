@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataStructure.LinkedList
 {
+    /// <summary>
+    /// 单向链表实现映射字典 
+    /// </summary>
+    /// <typeparam name="Key"></typeparam>
+    /// <typeparam name="Value"></typeparam>
     class LinkedList3<Key,Value>
     {
         private class Node 

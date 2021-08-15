@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DataStructure.Dictionary
 {
     /// <summary>
-    /// 字典接口
+    ///  映射 字典接口
     /// </summary>
     /// <typeparam name="Key"></typeparam>
     /// <typeparam name="Value"></typeparam>

@@ -14,35 +14,61 @@ namespace DataStructure
      
         static void Main(string[] args)
         {
+            //链表字典 和 有序数组字典对比
+            Stopwatch st = new Stopwatch();
+            List<string> words = ReadFile("D:\\doc.txt");
+            Console.WriteLine(words.Count);
+            LinkedList3Dictionary<string, int> linkedList3Dictionary = new LinkedList3Dictionary<string, int>();
+            SortedArray2Dictionary<string, int> sortedArray2Dictionary = new SortedArray2Dictionary<string, int>();
+            long t1 = TestDictionary(linkedList3Dictionary,words);
+            long t2 = TestDictionary(sortedArray2Dictionary, words);
+            Console.WriteLine(t1);
+            Console.WriteLine(linkedList3Dictionary.Get("in"));
+            Console.WriteLine(linkedList3Dictionary.Count);
+            Console.WriteLine(t2);
+            Console.WriteLine(sortedArray2Dictionary.Get("in"));
+            Console.WriteLine(sortedArray2Dictionary.Count);
+            //有序数组集合（二分查找） 和链表集合对比（顺序查找）
+            //Stopwatch st = new Stopwatch();
+            //List<string> words = ReadFile("D:\\doc.txt");
+            //Console.WriteLine(words.Count);
+            //LinkedList1Set<string> linkedList1Set = new LinkedList1Set<string>();
+            //SortedArray1Set<string> sortedArray1Set = new SortedArray1Set<string>();
+            //long t1=TestSet(sortedArray1Set, words);
+            //long t2 = TestSet(linkedList1Set, words);
+            //Console.WriteLine(t1);
+            //Console.WriteLine(linkedList1Set.Count);
+            //Console.WriteLine(t2);
+            //Console.WriteLine(sortedArray1Set.Count);
             //有序数组
-            int[] arr = { 1, 3, 4, 2, 55, 223, 45, 12, 532, 123, 53123, 124, 4325, 123, 432 };
-            SortedArray1<int> sortedArray1 = new SortedArray1<int>();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                sortedArray1.Add(arr[i]);
-            }
-            Console.WriteLine(sortedArray1);
-            Console.WriteLine(sortedArray1.Contains(0));
-            Console.WriteLine(sortedArray1.Min());
-            Console.WriteLine(sortedArray1.Max());
-            Console.WriteLine(sortedArray1.Select(0));
-            Console.WriteLine(sortedArray1.Floor(1));
-            Console.WriteLine(sortedArray1.Ceiling(433));
-            sortedArray1.Remove(55);
-            Console.WriteLine(sortedArray1);
+            //int[] arr = { 1, 3, 4, 2, 55, 223, 45, 12, 532, 123, 53123, 124, 4325, 123, 432 };
+            //SortedArray1<int> sortedArray1 = new SortedArray1<int>();
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    sortedArray1.Add(arr[i]);
+            //}
+            //Console.WriteLine(sortedArray1);
+            //Console.WriteLine(sortedArray1.Contains(0));
+            //Console.WriteLine(sortedArray1.Min());
+            //Console.WriteLine(sortedArray1.Max());
+            //Console.WriteLine(sortedArray1.Select(0));
+            //Console.WriteLine(sortedArray1.Floor(1));
+            //Console.WriteLine(sortedArray1.Ceiling(433));
+            //sortedArray1.Remove(55);
+            //Console.WriteLine(sortedArray1);
 
-            Student[] students =
-            {
-                new Student("小明",180),
-                 new Student("小H",140),
-                  new Student("小D",150)
-            };
-            SortedArray1<Student> s = new SortedArray1<Student>();
-            for (int i = 0; i < students.Length; i++)
-            {
-                s.Add(students[i]);
-            }
-            Console.WriteLine(s);
+            //Student[] students =
+            //{
+            //    new Student("小明",180),
+            //     new Student("小H",140),
+            //      new Student("小D",150)
+            //};
+            //SortedArray1<Student> s = new SortedArray1<Student>();
+            //for (int i = 0; i < students.Length; i++)
+            //{
+            //    s.Add(students[i]);
+            //}
+            //Console.WriteLine(s);
             //链表字典 单词字典
             //Stopwatch st1 = new Stopwatch();
             //List<string> words1 = ReadFile("D:\\doc.txt");
