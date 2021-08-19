@@ -7,9 +7,10 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            int[] arr = {1,2,3,4,5,6,7 };
-            Rotate(arr,3);
+             int[] arr = {1,2,3,4,5,6,7 };
+             Rotate(arr,3);
         }
+
         /// <summary>
         /// 删除重复项，利用数组是排序的，使用两个指针
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using DataStructure.Array;
+using DataStructure.BinaryTree;
 using DataStructure.Dictionary;
 using DataStructure.Set;
 using DataStructure.Test;
@@ -14,20 +15,59 @@ namespace DataStructure
      
         static void Main(string[] args)
         {
+            //红黑树
+            RedBlankTree<int> redBlankTree = new RedBlankTree<int>();
+            int[] a = { 8, 4, 12, 2,1, 6, 10, 14 };
+            for (int i = 0; i < a.Length; i++)
+            {
+                redBlankTree.Add(a[i]);
+            }
+            Console.WriteLine(redBlankTree.MaxHeight());
+
+            //二叉查找树 查找 删除 添加 排序
+            //int[] a = { 8, 4, 12, 2,1, 6, 10, 14 };
+            //BinarySeachTree<int> bst = new BinarySeachTree<int>();
+            //for (int i = 0; i < a.Length; i++)
+            //{
+            //    bst.Add1(a[i]);
+            //}
+            //bst.PreOrder();         
+            //Console.WriteLine();
+            //bst.InOrder();
+            //Console.WriteLine();
+            //bst.PostOrder();
+            //Console.WriteLine();
+            //bst.LevelOrder();0
+            //Console.WriteLine();
+            //Console.WriteLine(bst.Max());
+            //Console.WriteLine(bst.Min());
+            //Console.WriteLine();
+            //bst.RemoveMin();
+            //bst.RemoveMax();
+            //Console.WriteLine();
+            //bst.InOrder();
+            //Console.WriteLine();
+            //Console.WriteLine(bst.Max());
+            //Console.WriteLine(bst.Min());
+            //Console.WriteLine();
+            // bst.Remove(6);
+            // bst.InOrder();
+            // Console.WriteLine(bst.MaxHeight());
+
             //链表字典 和 有序数组字典对比
-            Stopwatch st = new Stopwatch();
-            List<string> words = ReadFile("D:\\doc.txt");
-            Console.WriteLine(words.Count);
-            LinkedList3Dictionary<string, int> linkedList3Dictionary = new LinkedList3Dictionary<string, int>();
-            SortedArray2Dictionary<string, int> sortedArray2Dictionary = new SortedArray2Dictionary<string, int>();
-            long t1 = TestDictionary(linkedList3Dictionary,words);
-            long t2 = TestDictionary(sortedArray2Dictionary, words);
-            Console.WriteLine(t1);
-            Console.WriteLine(linkedList3Dictionary.Get("in"));
-            Console.WriteLine(linkedList3Dictionary.Count);
-            Console.WriteLine(t2);
-            Console.WriteLine(sortedArray2Dictionary.Get("in"));
-            Console.WriteLine(sortedArray2Dictionary.Count);
+            //Stopwatch st = new Stopwatch();
+            //List<string> words = ReadFile("D:\\doc.txt"); 
+            //Console.WriteLine(words.Count);
+            //LinkedList3Dictionary<string, int> linkedList3Dictionary = new LinkedList3Dictionary<string, int>();
+            //SortedArray2Dictionary<string, int> sortedArray2Dictionary = new SortedArray2Dictionary<string, int>();
+            //long t1 = TestDictionary(linkedList3Dictionary,words);
+            //long t2 = TestDictionary(sortedArray2Dictionary, words);
+            //Console.WriteLine(t1);
+            //Console.WriteLine(linkedList3Dictionary.Get("in"));
+            //Console.WriteLine(linkedList3Dictionary.Count);
+            //Console.WriteLine(t2);
+            //Console.WriteLine(sortedArray2Dictionary.Get("in"));
+            //Console.WriteLine(sortedArray2Dictionary.Count);
             //有序数组集合（二分查找） 和链表集合对比（顺序查找）
             //Stopwatch st = new Stopwatch();
             //List<string> words = ReadFile("D:\\doc.txt");
