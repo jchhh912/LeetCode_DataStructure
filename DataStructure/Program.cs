@@ -23,7 +23,6 @@ namespace DataStructure
                 hashST.Add(i);
             }
             Console.WriteLine(hashST.Count);
-            HashST2Dictionary. 
             //红黑树
             //RedBlankTree<int> redBlankTree = new RedBlankTree<int>();
             //int[] a = { 8, 4, 12, 2,1, 6, 10, 14 };
