@@ -1,6 +1,7 @@
 ﻿using DataStructure.Array;
 using DataStructure.BinaryTree;
 using DataStructure.Dictionary;
+using DataStructure.Hash;
 using DataStructure.Set;
 using DataStructure.Test;
 using System;
@@ -15,14 +16,37 @@ namespace DataStructure
      
         static void Main(string[] args)
         {
-            //红黑树
-            RedBlankTree<int> redBlankTree = new RedBlankTree<int>();
-            int[] a = { 8, 4, 12, 2,1, 6, 10, 14 };
-            for (int i = 0; i < a.Length; i++)
+            //哈希表
+            HashST_Set<int> hashST = new HashST_Set<int>();
+            for (int i = 0; i < 999999; i++)
             {
-                redBlankTree.Add(a[i]);
+                hashST.Add(i);
             }
-            Console.WriteLine(redBlankTree.MaxHeight());
+            Console.WriteLine(hashST.Count);
+            HashST2Dictionary. 
+            //红黑树
+            //RedBlankTree<int> redBlankTree = new RedBlankTree<int>();
+            //int[] a = { 8, 4, 12, 2,1, 6, 10, 14 };
+            //for (int i = 0; i < a.Length; i++)
+            //{
+            //    redBlankTree.Add(a[i]);
+            //}
+            //Console.WriteLine(redBlankTree.MaxHeight());
+            //RedBlankTreeSet<int> blankTreeSet = new RedBlankTreeSet<int>();
+            //for (int i = 0; i < 999999; i++)
+            //{
+            //    blankTreeSet.Add(i);
+            //}
+            //Console.WriteLine(blankTreeSet.Contains(3333));
+            //Console.WriteLine(blankTreeSet.Count);
+            //RedBlankTree2Dictionary<int, int> redBlankTree2Dictionary = new RedBlankTree2Dictionary<int, int>();
+            //for (int i = 0; i < 999999; i++)
+            //{
+            //    redBlankTree2Dictionary.Add(i,i);
+            //}
+            //Console.WriteLine(redBlankTree2Dictionary.Count);
+            //Console.WriteLine(redBlankTree2Dictionary);
+
 
             //二叉查找树 查找 删除 添加 排序
             //int[] a = { 8, 4, 12, 2,1, 6, 10, 14 };

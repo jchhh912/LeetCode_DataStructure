@@ -7,22 +7,25 @@ using System.Threading.Tasks;
 namespace DataStructure.BinaryTree
 {
     /// <summary>
-    /// 红黑树实现集合
+    /// 实现映射
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    class RedBlankTree<T> where T : IComparable<T>
+    /// <typeparam name="Key"></typeparam>
+    /// <typeparam name="Value"></typeparam>
+    class RedBlankTree2<Key,Value> where Key : IComparable<Key>
     {
         private const bool Red = true;
         private const bool Black = false;
         private class Node
         {
-            public T t;
+            public Key key;
+            public Value value;
             public Node left;
             public Node right;
             public bool color;
-            public Node(T t)
+            public Node(Key key,Value value)
             {
-                this.t = t;
+                this.key = key;
+                this.value = value;
                 left = null;
                 right = null;
                 color = Red;
@@ -30,7 +33,7 @@ namespace DataStructure.BinaryTree
         }
         private Node root;
         private int N;
-        public RedBlankTree()
+        public RedBlankTree2()
         {
             root = null;
             N = 0;
@@ -103,26 +106,30 @@ namespace DataStructure.BinaryTree
         /// 往红黑树中添加元素 递归实现  
         /// </summary>
         /// <param name="t"></param>
-        public void Add(T t)
+        public void Add(Key key,Value value)
         {
-            root = Add(root, t);
+            root = Add(root, key,value);
             root.color = Black;
         }
         //以node为根的树中添加元素t，添加后返回根节点node
-        private Node Add(Node node, T t)
+        private Node Add(Node node, Key key,Value value)
         {
             if (node == null)
             {
                 N++;
-                return new Node(t);//默认为红节点
+                return new Node(key,value);//默认为红节点
             }
-            if (t.CompareTo(node.t) < 0)
+            if (key.CompareTo(node.key) < 0)
             {
-                node.left = Add(node.left, t);
+                node.left = Add(node.left, key,value);
             }
-            else if (t.CompareTo(node.t) > 0)
+            else if (key.CompareTo(node.key) > 0)
             {
-                node.right = Add(node.right, t);
+                node.right = Add(node.right, key,value);
+            }
+            else  //key 已存在
+            {
+                node.value = value;
             }
             //维护红黑树
             //1.如果出现右子节点为红色 左子节点为黑色 进行左旋转
@@ -142,50 +149,63 @@ namespace DataStructure.BinaryTree
             }
             return node;
         }
-        public bool Contains(T t)
-        {
-            return Contains(root, t);
-        }
         /// <summary>
-        /// 以nood为根节点查看树是否包含元素t  递归查找
+        /// 获取key 的节点
         /// </summary>
-        /// <param name=""></param>
-        /// <param name="t"></param>
+        /// <param name="node"></param>
+        /// <param name="key"></param>
         /// <returns></returns>
-        private bool Contains(Node node, T t)
+        private Node GetNode(Node node, Key key)
         {
             if (node == null)
             {
-                return false;
+                return null;
             }
-            if (t.CompareTo(node.t) == 0)
+            if (key.Equals(node.key))
             {
-                return true;
+                return node;
             }
-            else if (t.CompareTo(node.t) < 0)
+            else if (key.CompareTo(node.key) < 0)
             {
-                return Contains(node.left, t);
+                return GetNode(node.left, key);
+            }
+            else  // >0
+            {
+                return GetNode(node.right, key);
+            }
+        }
+        public bool Contais(Key key)
+        {
+            return GetNode(root, key) != null;
+        }
+        /// <summary>
+        /// 根据key获取value
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Value GetValue(Key key)
+        {
+            Node node = GetNode(root, key);
+            if (node == null)
+            {
+                throw new ArgumentException($"{key}不存在,无法获取");
             }
             else
             {
-                //t.CompareTo(node.t)>0
-                return Contains(node.right, t);
+                return node.value;
             }
         }
-        public int MaxHeight()
+        public void Set(Key key, Value newValue)
         {
-            return MaxHeight(root);
-        }
-        private int MaxHeight(Node node)
-        {
+            Node node = GetNode(root, key);
             if (node == null)
             {
-                return 0;
+                throw new ArgumentException($"{key}不存在,无法更改");
             }
-            //int l = MaxHeight(node.left);
-            //int r = MaxHeight(node.right);
-            //return Math.Max(l, r) + 1;
-            return Math.Max(MaxHeight(node.left), MaxHeight(node.right)) + 1;
+            else
+            {
+                node.value = newValue;
+            }
         }
     }
 }
